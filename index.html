@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Práctica para la asignatura de Desarrollo Web, construyendo una página web responsive
+ para la empresa ficticia Happy Hump, que vende productos para mascotas. Para la realización
+ de este trabajo, se han seguido los criterios señalados por el profesor en el enunciado de la práctica.
+ A lo largo del código, explico brevemente, a través de comentarios, para qué sirven las líneas
+ de código que se han usado.-->
+<head>
+    <meta charset="UTF-8">
+    <!-- Metaetiqueta de viewport para diseño responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <!-- Título de la página, en la pestaña del navegador -->
+    <title>Happy Hump</title>
+    <!-- Descripción de la página para SEO -->
+    <meta name="description" content="Una descripción breve y relevante de tu sitio web">
+    <!-- Metaetiquetas para redes sociales (Open Graph), según lo pedido en la tarea -->
+    <meta property="og:title" content="Mi Sitio Web">
+    <meta property="og:description" content="Una descripción breve y relevante de tu sitio web">
+    <meta property="og:image" content="https://ejemplo.com/imagen.jpg">
+    <meta property="og:url" content="https://ejemplo.com">
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace para acceder a las fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome, usados para los íconos de las redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Enlace al archivo JavaScript necesario para el slider -->
+    <script src="slider.js" defer></script>
+    <!-- Enlace al favicon de la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="Images/favIconHH.png">
+</head>
+
+<body>
+    <!-- Encabezado del sitio en la parte superior de la página, es el elemento header-->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="Images/logo.gif" alt="Happy Hump Logo" class="header-logo">
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#acerca">About us</a></li>
+                    <li><a href="#servicios">Products</a></li>
+                    <li><a href="#contacto">Contact Us</a></li>
+                    <li><a href="signin.html" class="signin-btn"><i class="fas fa-user"></i> Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- En el elemento main se encuentra el contenido principal de la página -->
+    <main>
+        <div class="container">
+            <!-- Sección de inicio -->
+            <section id="inicio">
+                <h2>Happiness is just a hump away!</h2>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slide-wrapper">
+                            <img src="Images/pexels-catscoming.jpg" alt="Imagen de gatito" class="slide">
+                        </div>
+                        <div class="slide-wrapper">
+                            <img src="Images/pexels-dog.jpg" alt="Imagen de perrito" class="slide">
+                        </div>
+                        <div class="slide-wrapper">
+                            <img src="Images/pexels-hamster.jpg" alt="Imagen de un hamster" class="slide">
+                        </div>
+                        <div class="slide-wrapper">
+                            <img src="Images/pexels-catscoming.jpg" alt="Imagen de gatito" class="slide">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Acerca de, o About us -->
+            <section id="acerca">
+                <h2>About us</h2>
+                <p>At Happy Hump, we believe in creating a world where pets thrive and their owners can fully enjoy the
+                    joy they bring. Our mission is to deliver high-quality, innovative products that promote the
+                    well-being of animals and strengthen the connection between pets and their families.</p>
+            </section>
+
+            <!-- Sección de Productos. Obviamente, los enlaces llevan a productos de Amazon
+             ya existentes, pero que no pertenecen a Happy Hump, por ser una empresa ficticia -->
+            <section id="servicios">
+                <h2>Products</h2>
+                <div class="product-container">
+                    <div class="product">
+                        <a href="https://www.amazon.es/FUKUMARU-rascador-Niveles-montado-rasgu%C3%B1ar/dp/B0CKMV1KMW/ref=sxin_15_pa_sp_search_thematic_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&content-id=amzn1.sym.d026eeb3-816b-4188-94c7-d74f0e35b256%3Aamzn1.sym.d026eeb3-816b-4188-94c7-d74f0e35b256&crid=3RB1L5Y1XPN76&cv_ct_cx=estanter%C3%ADa+gatos&dib=eyJ2IjoiMSJ9._A5kJrGZpguoGFbuG2qc6h0j271g4GrhM5xwvGmT3_StT917oomkCJ_K3Jj95mrKSCHjMwW7xV6JbYc9sDtZNw.UGRziQ3JNHPhuNRHWnmJM0jEEVt87kMY0oSYRdxXGQ0&dib_tag=se&keywords=estanter%C3%ADa+gatos&pd_rd_i=B0CKMV1KMW&pd_rd_r=5fe419d1-165a-4660-a360-3e257fb5759d&pd_rd_w=uvG0A&pd_rd_wg=q0Q0k&pf_rd_p=d026eeb3-816b-4188-94c7-d74f0e35b256&pf_rd_r=5XNXD0BJ08CBEPZQGJ8K&qid=1729415847&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=estanter%C3%ADa+gatos%2Caps%2C94&sr=1-2-a1aca6a1-078c-4f7f-b084-1addcab873fb-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" target="_blank" rel="noopener noreferrer">
+                            <img src="Images/catTree.jpg" alt="Árbol para gatos" class="product-image">
+                            <h3>Cat Tree</h3>
+                        </a>
+                    </div>
+                    <div class="product">
+                        <a href="https://www.amazon.com/Bedsure-Orthopedic-Medium-Removable-Washable/dp/B089QXMQXK/ref=sr_1_4?crid=7UT939D9R8HW&dib=eyJ2IjoiMSJ9.pM6FgAbaEFEN1yuqyL0sTDTwtQkcUxwZtMzefghnS8415o1pEyasxK84RSAPHmk64XovFsgygPOTUYZC_d8TAiYOJAI7A77ITedWUpaHUnCp98abIOppoVdiGEvQgsHyanV3DRVRi0us6-MfcqCrbyoKh-xn2Fma1e_frzLpRDPjjTOFHo1CdKYM4pD5nuDeKdgj3waSKfDRdPbCNnHqAxi37SxNxMjsF66bPcFHX7w.XsEH66ZMGAB_hYRmQ3_GyIPZgu66Hny47A39IELuOm8&dib_tag=se&keywords=dog%2Bbed&psr=PDAY&qid=1729412532&s=pbdd&sprefix=dog%2Bbe%2Cpbdd%2C184&sr=1-4&th=1" target="_blank" rel="noopener noreferrer">
+                            <img src="Images/dogBed.jpg" alt="Camita para perros" class="product-image">
+                            <h3>Dog Bed</h3>
+                        </a>
+                    </div>
+                    <div class="product">
+                        <a href="https://www.amazon.com/ComSaf-Cat-Donut-Tunnel-Bed/dp/B0D2XBBFB2/ref=sr_1_20?dib=eyJ2IjoiMSJ9.YT1In-8UIfTpdHfx1UnyVbGrvtsN7Tj7awxUq0DOrbSa0d7gZ2MqKmofavU1oHM9LXPfM4sOuG1mjwkQbXt29VX2AVfbj0yKaS2IIWL7pmtaG8kh0w_VBsIyx9RmyXopUwsPO2GqqZr9hMOhWrOvW8XoyZ_sLrzmwkvsP9ZASpiJkt2YxSzdVi_ivJe63xUnJN5dVTeLw0JsqeQqiFag5aOqasitH9O_v35EMHvfg4Q.ctqfXN1iBYyah5vLbVm2hYbb26-zQkqWhodPItynJl8&dib_tag=se&keywords=cattasaurus+peekaboo+cat+cave+for+multiple+cats&qid=1727191126&sr=8-20" target="_blank" rel="noopener noreferrer">
+                            <img src="Images/catHouse.jpg" alt="Casa para gatos" class="product-image">
+                            <h3>Cat House</h3>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Contacto -->
+            <section id="contacto">
+                <h2>Contact us</h2>
+                <form>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Message">
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pie de página, con los logos de las redes sociales, que se vuelven azules al pasar el cursor por encima.
+     De momento, los enlaces de las redes sociales no llevan a ninguna parte, ya que es una empresa ficticia.
+     En su lugar, se han dejado los enlaces para que se puedan ver los íconos de las redes sociales-->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 All rights reserved.</p>
+            <!-- Iconos de redes sociales -->
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

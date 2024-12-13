@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Happy Hump</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="auth.js" defer></script>
+    <link rel="icon" type="image/png" href="Images/favIconHH.png">
+</head>
+
+<body>
+    <!-- Header similar al original -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="Images/logo.gif" alt="Happy Hump Logo" class="header-logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#acerca">About us</a></li>
+                    <li><a href="index.html#servicios">Products</a></li>
+                    <li><a href="index.html#contacto">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="auth-form">
+                <h2>Create Account</h2>
+                <form id="signupForm" onsubmit="handleSignUp(event)">
+                    <!-- Información Personal -->
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="nombre" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" id="fechaNacimiento" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="telefono" placeholder="Phone Number" pattern="[0-9]{9}"
+                            title="Please enter a valid phone number (9 digits)" required>
+                    </div>
+
+                    <!-- Dirección -->
+                    <div class="input-group">
+                        <i class="fas fa-home"></i>
+                        <input type="text" id="direccion" placeholder="Street Address" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-city"></i>
+                        <input type="text" id="ciudad" placeholder="City" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="codigoPostal" placeholder="Postal Code" pattern="[0-9]{5}"
+                            title="Please enter a valid postal code (5 digits)" required>
+                    </div>
+
+                    <!-- Contraseñas -->
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <span class="password-toggle">
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword('password')"></i>
+                        </span>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                        <span class="password-toggle">
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword('confirmPassword')"></i>
+                        </span>
+                    </div>
+
+                    <!-- Términos y Condiciones -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terminos" required>
+                        <label for="terminos">
+                            I accept the <a href="#" onclick="mostrarLOPD()">Terms and Conditions and Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit">Create Account</button>
+                    <p class="auth-link">Already have an account? <a href="signin.html">Sign in here.</a></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer igual que index.html -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div id="lopdModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="cerrarLOPD()">&times;</span>
+            <h3>Terms and Conditions</h3>
+            <p>Esta página web es propiedad de Happy Hump con NIF n.º F34258923, domicilio en Calle Francisco Silvela 123, 28004 Madrid e inscrita en el Registro Mercantil de Madrid con los siguientes datos de inscripción Tomo 1234, Folio 56, Sección 8.</p>
+            <p>Para cualquier consulta o propuesta, contáctenos en el e-mail info@happyhump.com o en el teléfono 912345678.</p>
+            <p>Esta página web se rige por la normativa exclusivamente aplicable en España.</p>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js';
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js';
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyAcjA36kxyCyvmraYHJhj5jPx_nIVzISb0",
+            authDomain: "tarea-interfaces---css-01.firebaseapp.com",
+            projectId: "tarea-interfaces---css-01",
+            storageBucket: "tarea-interfaces---css-01.firebasestorage.app",
+            messagingSenderId: "466712325661",
+            appId: "1:466712325661:web:1d6e6ca3c9dffbb06560f4",
+            measurementId: "G-B08Y4KMEFG"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const analytics = getAnalytics(app);
+    </script>
+    <script>
+        // Función para mostrar la ventana modal
+        function mostrarLOPD() {
+            const modal = document.getElementById('lopdModal');
+            modal.style.display = "block";
+        }
+
+        // Función para cerrar la ventana modal
+        function cerrarLOPD() {
+            const modal = document.getElementById('lopdModal');
+            modal.style.display = "none";
+        }
+
+        // Cerrar la modal si se hace clic fuera de ella
+        window.onclick = function(event) {
+            const modal = document.getElementById('lopdModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

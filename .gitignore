@@ -1,0 +1,5 @@
+# Archivos y carpetas a ignorar
+.DS_Store
+*.log
+.vscode/
+.idea/

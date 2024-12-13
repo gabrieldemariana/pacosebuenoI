@@ -1,0 +1,689 @@
+/* Normalización de estilos (basado en Normalize.css) */
+/* @https://necolas.github.io/normalize.css/8.0.1/normalize.css */
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #F5F5F5;
+    margin: 0;
+}
+
+/* FIN DE LA NORMALIZACIÓN */
+
+
+
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Contenedor general para centrar el contenido */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Contenedor para el encabezado */
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0 rem;
+}
+
+/* Contenedor para el logo */
+.logo-container {
+    margin-bottom: -0.5rem;
+}
+
+/* Tamaño del logo y ajuste de la altura */
+.header-logo {
+    max-width: 200px;
+    height: auto;
+}
+
+/* Estilos (color y padding) del encabezado */
+header {
+    background-color: #FEF200;
+    padding: 1rem 0 0;
+}
+
+/* Estilos de navegación (inspirado en css3-menu-generator) */
+/* @https://www.cssportal.com/css3-menu-generator/ */
+nav {
+    width: 100%;
+    padding: 0rem 4;
+    margin-bottom: 0.25rem;
+}
+
+/* Contenedor para la lista de navegación */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1 auto;
+}
+
+nav ul li {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    padding: 0 20px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    /* Asegura que el enlace ocupe todo el espacio del li */
+    padding: 5px 0;
+    /* Añade un poco de padding vertical */
+}
+
+nav ul li:first-child {
+    padding-left: 0;
+    /* Elimina el padding izquierdo del primer elemento */
+}
+
+nav ul li:last-child {
+    padding-right: 0;
+    /* Elimina el padding derecho del último elemento */
+}
+
+nav ul li a:hover {
+    color: #0000FF;
+    /* Cambia a azul al pasar el cursor */
+}
+
+/* ESTILOS DEL CONTENIDO PRINCIPAL */
+main {
+    padding: 2rem 0;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #4a4a4a;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos de la barra lateral */
+aside {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #FEF200;
+    /* Amarillo */
+    color: #333;
+    /* Tono oscuro de la fuente */
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Estilos de los iconos sociales en el footer */
+.social-icons a {
+    color: #333;
+    /* Color original de los iconos */
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    /* Transición suave del cambio de color cuando se pasa el cursor */
+}
+
+.social-icons a:hover {
+    color: #0000FF;
+    /* Cambia a azul al pasar el cursor */
+}
+
+/* Estilos responsivos para la navegación en móvil */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Estilos del carousel de imágenes */
+.carousel {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1.5s ease-in-out;
+}
+
+.slide-wrapper {
+    min-width: 100%;
+    /* Aspect ratio 18:6 (equivalente a 3:1) */
+    padding-top: 33.33%; /* (6 / 18) * 100% = (1 / 3) * 100% */
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos del contenedor de productos */
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Estilos de los productos individuales */
+.product {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de zoom al pasar el cursor sobre los productos */
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos de las imágenes de los productos */
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilos del título de los productos */
+.product h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Estilos de los enlaces de los productos */
+.product a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilos responsivos para la disposición de los productos en móvil */
+@media (max-width: 768px) {
+    .product {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 100%;
+    }
+}
+
+/* Estilos del formulario de contacto */
+#contacto {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contacto input,
+#contacto textarea,
+#contacto button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#contacto input,
+#contacto button {
+    height: 40px;
+}
+
+#contacto textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#contacto button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contacto button:hover {
+    background-color: #45a049;
+}
+
+
+/* Estilos para los formularios de autenticación */
+.auth-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Añadido para incluir padding en el ancho total */
+}
+
+/* Ajustar el grupo de inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box; /* Añadido para incluir padding en el ancho total */
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+/* Ajustar los inputs */
+.input-group input {
+    width: 100%;
+    padding: 10px 35px; /* Reducido de los laterales */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Crucial para que el padding no afecte el ancho total */
+}
+
+/* Ajustar los iconos dentro de los inputs */
+.input-group i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-group i:first-child {
+    left: 10px;
+    color: #666;
+}
+
+.toggle-password {
+    right: 10px;
+    cursor: pointer;
+}
+
+
+
+/* Asegurar que el contenedor principal respete los márgenes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; /* Añadido para incluir padding en el ancho total */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.signin-btn {
+    background: #FEF200;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+
+/* Estilos para el formulario de registro */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    height: auto;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+}
+
+.checkbox-group a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+/* Modal LOPD */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 70%;
+    max-width: 600px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos del formulario de contacto */
+#contacto {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contacto input,
+#contacto textarea,
+#contacto button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#contacto input,
+#contacto button {
+    height: 40px;
+}
+
+#contacto textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#contacto button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contacto button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos base para los inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Icono principal (izquierda) */
+.input-group > i:first-child {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+}
+
+/* Contenedor del icono de toggle */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Icono de toggle */
+.toggle-password {
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover .toggle-password {
+    color: #333;
+}
+
+/* Estilos específicos para signin.html */
+.signin-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-page main {
+    flex: 1;
+}
+
+.signin-page footer {
+    margin-top: auto;
+}
+
+/* Estilos específicos para signin.html */
+.signin-page main .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(60vh - 80px); /* Ajusta este valor según el tamaño de tu header y footer */
+}
+
+.signin-page .auth-form {
+    margin: 0 auto;  /* Cambiado de 2rem auto */
+    width: 100%;     /* Asegura que tome el ancho máximo definido */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FEF200;
+        padding: 20px 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .container {
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    #contacto form {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #contacto input,
+    #contacto textarea {
+        font-size: 16px; /* Previene el zoom automático en iOS */
+        padding: 15px;
+    }
+
+    #contacto button {
+        height: 50px; /* Botón más grande para mejor interacción táctil */
+    }
+}
