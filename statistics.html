@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="auth.js" defer></script>
     <script src="cookies.js" defer></script>
-    <!-- Aquí añadiremos después las librerías de P5.js y otras -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="api.js"></script>
+    <script src="statistics.js" defer></script>
     <link rel="icon" type="image/png" href="Images/favIconHH.png">
 </head>
 
@@ -37,12 +40,30 @@
                         <h3>Products Sold</h3>
                         <p class="stat-number">5.4k</p>
                     </div>
+                    <div class="stat-card">
+                        <h3>Dog Breeds</h3>
+                        <p class="stat-number" id="breeds-count">Loading...</p>
+                    </div>
                 </div>
             </div>
 
             <div class="canvas-section">
                 <h3>Interactive Pet Visualization</h3>
                 <div id="p5-canvas"></div>
+                <div class="visualization-legend">
+                    <div class="legend-item">
+                        <span class="color-box" style="background: rgb(255, 200, 0)"></span>
+                        <span>Cat Tree - 150 units</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background: rgb(0, 255, 200)"></span>
+                        <span>Dog Bed - 200 units</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background: rgb(200, 0, 255)"></span>
+                        <span>Fish Tank - 100 units</span>
+                    </div>
+                </div>
             </div>
 
             <div class="products-section">
@@ -55,6 +76,16 @@
             <div class="graph-section">
                 <h3>Sales Analytics</h3>
                 <canvas id="sales-chart"></canvas>
+            </div>
+
+            <div class="breeds-section">
+                <h3>Featured Dog Breeds</h3>
+                <div class="breeds-container">
+                    <!-- Se llenará dinámicamente con JavaScript -->
+                </div>
+                <div class="search-section">
+                    <input type="text" id="breed-search" placeholder="Search dog breeds..." />
+                </div>
             </div>
         </div>
     </main>
