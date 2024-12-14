@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <li><a href="index.html">Home</a></li>
                             <li><a href="index.html#acerca">About us</a></li>
                             <li><a href="index.html#servicios">Products</a></li>
-                            <li><a href="index.html#contacto">Contact Us</a></li>
+                            <li><a href="statistics.html">Statistics</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
                             <li><a href="signin.html" class="signin-btn">
                                 <i class="fas fa-user"></i> Sign In</a></li>
                         </ul>
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="social-icons">
                         <a href="https://www.facebook.com/ucamuniversidad/?locale=es_ES" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-facebook"></i></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="https://x.com/ucam_deportes?lang=en" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-twitter"></i></a>
                         <a href="https://www.instagram.com/fpsanantonio/" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-instagram"></i></a>
@@ -43,20 +44,30 @@ document.addEventListener('DOMContentLoaded', function() {
             </footer>`;
     }
 
-    // Agregar el event listener para el botón de toggle password
-    const toggleBtn = document.getElementById('togglePasswordBtn');
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
+    // Función unificada para alternar la visibilidad de la contraseña
+    function togglePasswordVisibility(inputId) {
+        const passwordInput = document.getElementById(inputId);
+        const toggleIcon = document.querySelector(`[data-toggle="${inputId}"]`);
+        
+        if (passwordInput && toggleIcon) {
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
             } else {
                 passwordInput.type = 'password';
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
             }
-        });
+        }
     }
+
+    // Event listeners para los botones de toggle
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetInput = this.getAttribute('data-toggle');
+            togglePasswordVisibility(targetInput);
+        });
+    });
 });

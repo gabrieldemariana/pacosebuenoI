@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Statistics - Happy Hump</title>
+    <meta name="description" content="Pet statistics and analytics">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="auth.js" defer></script>
+    <script src="cookies.js" defer></script>
+    <!-- Aquí añadiremos después las librerías de P5.js y otras -->
+    <link rel="icon" type="image/png" href="Images/favIconHH.png">
+</head>
+
+<body class="statistics-page">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="dashboard-container">
+            <div class="header-section">
+                <h2>Pet Statistics Dashboard</h2>
+            </div>
+
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Pets</h3>
+                        <p class="stat-number">150</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Happy Customers</h3>
+                        <p class="stat-number">1.2k</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Products Sold</h3>
+                        <p class="stat-number">5.4k</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canvas-section">
+                <h3>Interactive Pet Visualization</h3>
+                <div id="p5-canvas"></div>
+            </div>
+
+            <div class="products-section">
+                <h3>Popular Products</h3>
+                <div class="product-list">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </div>
+
+            <div class="graph-section">
+                <h3>Sales Analytics</h3>
+                <canvas id="sales-chart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    
+</body>
+</html> 
