@@ -719,3 +719,54 @@ button[type="submit"]:hover {
     transform: translateY(-50%);
     cursor: pointer;
 }
+
+/* Estilos para el diálogo de cookies */
+.cookie-dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cookie-content h3 {
+    margin: 0;
+    color: #333;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.cookie-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cookie-button.accept {
+    background-color: #007bff;
+    color: white;
+}
+
+.cookie-button.reject {
+    background-color: #6c757d;
+    color: white;
+}

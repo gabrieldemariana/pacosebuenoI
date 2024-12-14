@@ -28,6 +28,7 @@
     <script src="slider.js" defer></script>
     <!-- Enlace al favicon de la pestaña del navegador -->
     <link rel="icon" type="image/png" href="Images/favIconHH.png">
+    <script src="cookies.js" defer></script>
 </head>
 
 <body>
@@ -105,6 +106,17 @@
     </main>
     
     <div id="footer-placeholder"></div>
+
+    <dialog id="cookieDialog" class="cookie-dialog">
+        <div class="cookie-content">
+            <h3>🍪 Cookie Notice</h3>
+            <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="cookie-button accept">Accept</button>
+                <button id="rejectCookies" class="cookie-button reject">Reject</button>
+            </div>
+        </div>
+    </dialog>
 </body>
 
 </html>
