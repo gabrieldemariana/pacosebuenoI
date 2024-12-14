@@ -1,34 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Mismos meta tags y enlaces que index.html -->
+    <meta charset="UTF-8">
     <title>Sign In - Happy Hump</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
-    <script src="auth.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="auth.js" defer></script>
+    <script src="auth.js" type="module" defer></script>
+    <link rel="icon" type="image/png" href="Images/favIconHH.png">
 </head>
 <body class="signin-page">
-    <!-- Header igual que index.html -->
-    <header>
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="Images/logo.gif" alt="Happy Hump Logo" class="header-logo">
-                </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#acerca">About us</a></li>
-                    <li><a href="index.html#servicios">Products</a></li>
-                    <li><a href="index.html#contacto">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
     
     <main>
         <div class="container">
@@ -47,45 +29,21 @@
                         </span>
                     </div>
                     <button type="submit">Sign In</button>
-                    <p class="auth-link">Don’t have an account? <a href="signup.html">Sign up here.</a></p>
+                    <p class="auth-link">Don't have an account? <a href="signup.html" target="_blank" rel="noopener noreferrer">Sign up here.</a></p>
                 </form>
             </section>
         </div>
     </main>
     
-    <!-- Footer igual que index.html -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 All rights reserved.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js';
         import { getAuth } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
         import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
         import { getAnalytics } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js';
-    
-        const firebaseConfig = {
-            apiKey: "AIzaSyAcjA36kxyCyvmraYHJhj5jPx_nIVzISb0",
-            authDomain: "tarea-interfaces---css-01.firebaseapp.com",
-            projectId: "tarea-interfaces---css-01",
-            storageBucket: "tarea-interfaces---css-01.firebasestorage.app",
-            messagingSenderId: "466712325661",
-            appId: "1:466712325661:web:1d6e6ca3c9dffbb06560f4",
-            measurementId: "G-B08Y4KMEFG"
-        };
-    
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const analytics = getAnalytics(app);
+        
+        // Firebase configuration...
     </script>
 </body>
 </html>

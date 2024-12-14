@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateSlider(isNext = false) {
-        slider.style.transition = 'transform 0.5s ease-in-out';
+        slider.style.transition = 'transform 1s ease-in-out';
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
         // Si llegamos a la imagen duplicada (última)
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Volvemos instantáneamente al inicio
                 currentIndex = 0;
                 slider.style.transform = `translateX(0)`;
-            }, 500); // Este tiempo debe coincidir con la duración de la transición en CSS
+            }, 1000); // Aumentamos este tiempo para que coincida con la nueva duración de la transición
         }
     }
 
-    // Cambiar slide cada 4 segundos
-    setInterval(nextSlide, 4000);
+    // Aumentamos el intervalo de 4000ms (4s) a 6000ms (6s)
+    setInterval(nextSlide, 6000);
 });
