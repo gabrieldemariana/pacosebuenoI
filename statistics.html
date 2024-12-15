@@ -74,7 +74,13 @@
             </div>
 
             <div class="graph-section">
-                <h3>Sales Analytics</h3>
+                <div class="chart-header">
+                    <h3>Sales Analytics</h3>
+                    <select id="time-range">
+                        <option value="3">Last 3 Months</option>
+                        <option value="12">Full Year</option>
+                    </select>
+                </div>
                 <canvas id="sales-chart"></canvas>
             </div>
 

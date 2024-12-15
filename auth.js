@@ -9,19 +9,32 @@ document.addEventListener('DOMContentLoaded', function() {
                             <img src="Images/logo.gif" alt="Happy Hump Logo" class="header-logo">
                         </a>
                     </div>
-                    <nav>
-                        <ul>
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <nav class="main-nav">
+                        <ul class="nav-list">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="index.html#acerca">About us</a></li>
                             <li><a href="index.html#servicios">Products</a></li>
                             <li><a href="statistics.html">Statistics</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="signin.html" class="signin-btn">
+                            <li><a href="signin.html">
                                 <i class="fas fa-user"></i> Sign In</a></li>
                         </ul>
                     </nav>
                 </div>
             </header>`;
+
+        // Agregar la funcionalidad del menú móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navList = document.querySelector('.nav-list');
+
+        if (menuToggle && navList) {
+            menuToggle.addEventListener('click', function() {
+                navList.classList.toggle('active');
+            });
+        }
     }
 
     const footerPlaceholder = document.getElementById('footer-placeholder');

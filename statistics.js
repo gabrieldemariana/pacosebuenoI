@@ -94,73 +94,87 @@ function draw() {
 
 // Configuración de Chart.js
 document.addEventListener('DOMContentLoaded', async function() {
-    // Gráfico de ventas
     const ctx = document.getElementById('sales-chart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [{
-                label: 'Ventas Mensuales',
-                data: [65, 59, 80, 81, 56, 55],
-                borderColor: '#FEF200',
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Tendencia de Ventas 2024'
-                }
-            }
-        }
-    });
+    let salesChart;
 
-    // Actualizar lista de productos populares
-    const productList = document.querySelector('.product-list');
+    // Datos de ventas (simulados)
+    const yearlyData = {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        data: [65, 59, 80, 81, 56, 55, 70, 75, 82, 88, 95, 100]
+    };
+
+    // Datos de productos populares
     const popularProducts = [
         { name: 'Cat Tree', sales: 150 },
         { name: 'Dog Bed', sales: 120 },
         { name: 'Fish Tank', sales: 90 }
     ];
 
-    popularProducts.forEach(product => {
-        const item = document.createElement('div');
-        item.className = 'popular-product';
-        item.innerHTML = `
-            <h4>${product.name}</h4>
-            <p>Ventas: ${product.sales}</p>
-        `;
-        productList.appendChild(item);
-    });
-
-    // Obtener los datos de la API
-    const dogData = await fetchDogStats();
-    
-    if (dogData && dogData.featuredBreeds) {
-        // Actualizar el contenedor de razas
-        const breedsContainer = document.querySelector('.breeds-container');
-        dogData.featuredBreeds.forEach(breed => {
-            const breedCard = document.createElement('div');
-            breedCard.className = 'breed-card';
-            breedCard.innerHTML = `
-                <img src="${breed.image || 'placeholder.jpg'}" alt="${breed.name}" class="breed-image">
-                <div class="breed-info">
-                    <h4>${breed.name}</h4>
-                    <p><strong>Temperament:</strong> ${breed.temperament || 'Not specified'}</p>
-                    <p><strong>Origin:</strong> ${breed.origin}</p>
-                    <p><strong>Life:</strong> ${breed.life_span}</p>
-                    <p><strong>Weight:</strong> ${breed.weight}</p>
-                    <p><strong>Height:</strong> ${breed.height}</p>
-                    <p><strong>Group:</strong> ${breed.breed_group}</p>
-                </div>
+    // Actualizar lista de productos populares
+    const productList = document.querySelector('.product-list');
+    if (productList) {
+        productList.innerHTML = ''; // Limpiar contenido existente
+        popularProducts.forEach(product => {
+            const item = document.createElement('div');
+            item.className = 'popular-product';
+            item.innerHTML = `
+                <h4>${product.name}</h4>
+                <p>Ventas: ${product.sales}</p>
             `;
-            breedsContainer.appendChild(breedCard);
+            productList.appendChild(item);
         });
     }
-}); 
+
+    function getLastNMonths(n) {
+        return {
+            labels: yearlyData.labels.slice(-n),
+            data: yearlyData.data.slice(-n)
+        };
+    }
+
+    function updateChart(months) {
+        const data = getLastNMonths(months);
+        
+        if (salesChart) {
+            salesChart.destroy();
+        }
+
+        salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Ventas Mensuales',
+                    data: data.data,
+                    borderColor: '#FEF200',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Ventas ${months === 3 ? 'Último Trimestre' : 'Año Completo'} 2024`
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    // Inicializar con 3 meses
+    updateChart(3);
+
+    // Escuchar cambios en el selector
+    document.getElementById('time-range').addEventListener('change', (e) => {
+        updateChart(parseInt(e.target.value));
+    });
+});
 
 async function searchBreeds(searchTerm) {
     try {
