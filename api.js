@@ -14,7 +14,7 @@ async function fetchDogStats() {
         // Obtener solo razas que tengan imágenes
         const breedsWithImages = breeds.filter(breed => breed.reference_image_id);
         
-        // Obtener 2 razas aleatorias en lugar de 3
+        // Obtener 2 razas aleatorias 
         const randomBreeds = breedsWithImages
             .sort(() => 0.5 - Math.random())
             .slice(0, 2);
